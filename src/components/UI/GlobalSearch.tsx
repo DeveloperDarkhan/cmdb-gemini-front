@@ -133,29 +133,31 @@ export function GlobalSearch() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(50px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={{ duration: 0.3 }}
             className="global-search-overlay"
-            onClick={(e) => {
-              if (e.target === e.currentTarget) {
-                setIsOpen(false);
-              }
+            onClick={() => {
+              console.log('Overlay clicked - closing search');
+              setIsOpen(false);
             }}
             data-testid="global-search-overlay"
           >
             {/* Search Dialog */}
             <motion.div
-              initial={{ scale: 0.85, opacity: 0, y: -30 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.85, opacity: 0, y: -30 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               transition={{ 
-                duration: 0.25,
+                duration: 0.2,
                 ease: [0.4, 0, 0.2, 1]
               }}
               className="global-search-dialog"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                console.log('Dialog clicked - preventing close');
+                e.stopPropagation();
+              }}
               data-testid="global-search-dialog"
             >
               {/* Search Input */}
