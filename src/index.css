@@ -61,24 +61,44 @@ body {
     rgba(255, 255, 255, 0.05) 0%,
     rgba(255, 255, 255, 0.01) 100%
   );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: var(--border-glass);
   box-shadow: var(--shadow-glass);
+  transition: all 0.3s ease;
+}
+
+:root.light .glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
 }
 
 .glass-card {
   background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-md);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
 }
 
+:root.light .glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
 .glass-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+:root.light .glass-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 /* Typography */
