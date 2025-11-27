@@ -131,4 +131,25 @@
   border-top: var(--border-glass);
 }
 
+:root.light .sidebar-footer {
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+.version-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  font-size: 12px;
+  color: hsl(var(--color-text-muted));
+}
+
+:root.light .version-tag {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
 
