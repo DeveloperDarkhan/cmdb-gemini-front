@@ -43,50 +43,47 @@
 
 /* Search Modal Overlay (clickable area) */
 .global-search-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  z-index: 9999 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 40px;
-  background: rgba(0, 0, 0, 0.85) !important;
-  backdrop-filter: blur(30px) !important;
-  -webkit-backdrop-filter: blur(30px) !important;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(50px) saturate(180%);
+  -webkit-backdrop-filter: blur(50px) saturate(180%);
+  cursor: pointer;
 }
 
 /* Light theme overlay */
 :root.light .global-search-overlay {
-  background: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(40px) !important;
-  -webkit-backdrop-filter: blur(40px) !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(60px) saturate(180%);
+  -webkit-backdrop-filter: blur(60px) saturate(180%);
 }
 
-/* Search Dialog - CENTERED */
+/* Search Dialog - STRICTLY CENTERED */
 .global-search-dialog {
-  position: relative !important;
-  width: 100%;
-  max-width: 680px;
-  margin: auto;
-  background: rgba(30, 41, 59, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
+  width: 90%;
+  max-width: 700px;
+  background: rgba(30, 41, 59, 1);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
   box-shadow: 
-    0 40px 80px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 255, 255, 0.08);
+    0 50px 100px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
   overflow: hidden;
+  cursor: default;
 }
 
 /* Light theme dialog */
 :root.light .global-search-dialog {
-  background: rgba(255, 255, 255, 0.98);
-  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 0, 0, 0.15);
   box-shadow: 
-    0 40px 80px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
+    0 50px 100px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 /* Search Input */
