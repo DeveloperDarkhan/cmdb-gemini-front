@@ -132,22 +132,22 @@ export function GlobalSearch() {
       {/* Search Modal */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-              animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
-              exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-              transition={{ duration: 0.3 }}
-              className="global-search-backdrop"
-              onClick={() => setIsOpen(false)}
-            />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="global-search-overlay"
+            onClick={() => setIsOpen(false)}
+          >
+            {/* Backdrop with blur */}
+            <div className="global-search-backdrop" />
 
             {/* Search Dialog */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="global-search-dialog"
               onClick={(e) => e.stopPropagation()}
