@@ -29,9 +29,10 @@
   gap: 24px;
 }
 
-.topbar-left {
-  display: flex;
-  align-items: center;
+.search-container {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .icon-btn {
