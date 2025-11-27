@@ -47,12 +47,22 @@
   outline: none;
   font-size: 13px;
   min-width: 240px;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+}
+
+:root.light .table-search input {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .table-search input:focus {
   border-color: hsl(var(--color-primary));
   background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.1);
+}
+
+:root.light .table-search input:focus {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .filter-btn {
