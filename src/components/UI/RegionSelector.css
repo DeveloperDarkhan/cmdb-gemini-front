@@ -22,6 +22,15 @@
   padding: 6px 12px;
   min-width: auto;
   border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Подсветка когда hover на search */
+.region-selector-trigger.compact.highlight {
+  background: rgba(var(--color-primary), 0.15);
+  border-color: rgba(var(--color-primary), 0.35);
+  box-shadow: 0 0 20px rgba(var(--color-primary), 0.3);
+  transform: scale(1.05);
 }
 
 :root.light .region-selector-trigger {
