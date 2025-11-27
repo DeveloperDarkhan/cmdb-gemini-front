@@ -12,6 +12,10 @@
   border-bottom: var(--border-glass);
 }
 
+:root.light .table-header {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
 .table-title {
   font-size: 18px;
   font-weight: 600;
