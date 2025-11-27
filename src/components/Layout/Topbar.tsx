@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
-import { Search, Bell, Globe } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Bell, Globe, Sun, Moon } from 'lucide-react';
+import { GlobalSearch } from '../UI/GlobalSearch';
+import { useTheme } from '../../contexts/ThemeContext';
 import './Topbar.css';
 
 export const Topbar: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
-    }
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="topbar glass-panel">
@@ -28,20 +21,19 @@ export const Topbar: React.FC = () => {
       </div>
 
       <div className="search-container">
-        <form onSubmit={handleSearch} className="search-form">
-          <Search size={18} className="search-icon" />
-          <input 
-            type="text" 
-            placeholder="Search assets, IPs, or tags..." 
-            className="search-input"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </form>
+        <GlobalSearch />
       </div>
 
       <div className="actions-container">
-        <button className="icon-btn">
+        <button 
+          className="icon-btn theme-toggle" 
+          onClick={toggleTheme}
+          data-testid="theme-toggle"
+          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+        <button className="icon-btn" data-testid="notifications-btn">
           <Bell size={20} />
           <span className="notification-dot" />
         </button>
