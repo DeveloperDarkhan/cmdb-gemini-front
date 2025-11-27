@@ -40,6 +40,17 @@ export function Sidebar() {
     closeSearch();
   };
 
+  // Подсказка о search при hover на nav items
+  const handleNavItemHover = () => {
+    const searchContainer = document.querySelector('.search-container-centered');
+    if (searchContainer) {
+      searchContainer.classList.add('pulse-hint');
+      setTimeout(() => {
+        searchContainer.classList.remove('pulse-hint');
+      }, 1500);
+    }
+  };
+
   return (
     <aside 
       className={clsx('sidebar glass-panel', isCollapsed && 'collapsed')}
