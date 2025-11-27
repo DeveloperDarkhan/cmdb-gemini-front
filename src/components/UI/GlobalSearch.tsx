@@ -138,7 +138,12 @@ export function GlobalSearch() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="global-search-overlay"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setIsOpen(false);
+              }
+            }}
+            data-testid="global-search-overlay"
           >
             {/* Backdrop with blur */}
             <div className="global-search-backdrop" />
