@@ -6,20 +6,31 @@
   gap: 16px;
   overflow: hidden;
   min-width: 240px;
+  cursor: pointer;
 }
 
 .stat-icon-wrapper {
-  padding: 12px;
+  padding: 14px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+:root.light .stat-icon-wrapper {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .stat-card:hover .stat-icon-wrapper {
   transform: scale(1.1) rotate(5deg);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:root.light .stat-card:hover .stat-icon-wrapper {
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .stat-content {
