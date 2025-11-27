@@ -34,9 +34,17 @@ const NAV_ITEMS = [
 
 export function Sidebar() {
   const { isCollapsed, toggleSidebar } = useSidebar();
+  const { closeSearch } = useSearch();
+
+  const handleSidebarClick = () => {
+    closeSearch();
+  };
 
   return (
-    <aside className={clsx('sidebar glass-panel', isCollapsed && 'collapsed')}>
+    <aside 
+      className={clsx('sidebar glass-panel', isCollapsed && 'collapsed')}
+      onClick={handleSidebarClick}
+    >
       <div className="sidebar-header">
         <div 
           className={clsx('logo-container', isCollapsed && 'clickable')}
