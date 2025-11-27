@@ -57,20 +57,14 @@ export function RegionSelector({ value = 'global', onChange }: RegionSelectorPro
   return (
     <div className="region-selector-wrapper" ref={dropdownRef}>
       <button
-        className="region-selector-trigger"
+        className="region-selector-trigger compact"
         onClick={() => setIsOpen(!isOpen)}
         data-testid="region-selector-trigger"
       >
-        <Globe size={18} className="region-icon" />
-        <div className="region-info">
-          <span className="region-label">Region</span>
-          <span className="region-value">
-            {currentRegion.flag && <span className="region-flag">{currentRegion.flag}</span>}
-            {currentRegion.label}
-          </span>
-        </div>
+        {currentRegion.flag && <span className="region-flag">{currentRegion.flag}</span>}
+        <span className="region-label-compact">{currentRegion.label}</span>
         <ChevronDown 
-          size={16} 
+          size={14} 
           className={`chevron-icon ${isOpen ? 'open' : ''}`}
         />
       </button>
