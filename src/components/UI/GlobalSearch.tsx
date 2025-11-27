@@ -48,7 +48,7 @@ const getTypeLabel = (type: SearchResult['type']) => {
 };
 
 export function GlobalSearch() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isSearchOpen, openSearch, closeSearch } = useSearch();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -60,23 +60,23 @@ export function GlobalSearch() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        setIsOpen(true);
+        openSearch();
       }
       if (e.key === 'Escape') {
-        setIsOpen(false);
+        closeSearch();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [openSearch, closeSearch]);
 
   // Focus input when opened
   useEffect(() => {
-    if (isOpen && inputRef.current) {
+    if (isSearchOpen && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [isOpen]);
+  }, [isSearchOpen]);
 
   // Search logic
   useEffect(() => {
