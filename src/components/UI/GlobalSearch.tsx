@@ -152,13 +152,24 @@ export function GlobalSearch() {
     setQuery('');
   };
 
+  // Отправляем событие для молнии при hover
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+    window.dispatchEvent(new CustomEvent('search-hover', { detail: { isHovering: true } }));
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    window.dispatchEvent(new CustomEvent('search-hover', { detail: { isHovering: false } }));
+  };
+
   return (
     <>
       {/* Search Trigger Button */}
       <button
         onClick={openSearch}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className={`search-trigger ${shouldPulse ? 'pulse' : ''}`}
         data-testid="global-search-trigger"
       >
