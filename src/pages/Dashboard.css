@@ -5,12 +5,22 @@
 }
 
 .dashboard-header h1 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 8px;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--color-text-main)),
+    hsl(var(--color-primary))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {
   color: hsl(var(--color-text-muted));
+  font-size: 15px;
 }
 
 .stats-grid {
