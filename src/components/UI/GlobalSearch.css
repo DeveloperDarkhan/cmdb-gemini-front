@@ -74,14 +74,20 @@
 }
 
 /* Light theme adjustments */
+:root.light .global-search-backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
 :root.light .global-search-dialog {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.9) 100%
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.95) 100%
   );
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
 }
 
 /* Search Input */
