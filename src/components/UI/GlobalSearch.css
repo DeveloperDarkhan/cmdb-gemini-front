@@ -41,43 +41,50 @@
   font-weight: 500;
 }
 
-/* Search Modal Overlay - SIMPLE AND WORKING */
+/* Search Modal Overlay - GRAFANA STYLE */
 .global-search-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  z-index: 100000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(60px);
-  -webkit-backdrop-filter: blur(60px);
+  padding: 60px 40px;
+  background: rgba(0, 0, 0, 0.90);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
 }
 
 /* Light theme overlay */
 :root.light .global-search-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(70px);
-  -webkit-backdrop-filter: blur(70px);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(25px) saturate(120%);
+  -webkit-backdrop-filter: blur(25px) saturate(120%);
 }
 
-/* Search Dialog - CENTERED */
+/* Search Dialog - PERFECTLY CENTERED */
 .global-search-dialog {
   width: 100%;
-  max-width: 680px;
+  max-width: 720px;
   background: hsl(var(--color-surface));
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.85);
   overflow: hidden;
+  margin: 0 auto;
 }
 
 /* Light theme dialog */
 :root.light .global-search-dialog {
   background: hsl(var(--color-surface));
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
 }
 
 /* Search Input */
