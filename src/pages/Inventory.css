@@ -4,9 +4,60 @@
   gap: 32px;
 }
 
+.page-header {
+  margin-bottom: 8px;
+}
+
 .page-header h1 {
   font-size: 28px;
   margin-bottom: 8px;
+}
+
+.asset-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.asset-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(var(--color-primary), 0.1);
+  color: hsl(var(--color-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.asset-icon-box:hover {
+  transform: scale(1.05);
+  background: rgba(var(--color-primary), 0.15);
+}
+
+.tag-pill {
+  display: inline-flex;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  font-size: 11px;
+  color: hsl(var(--color-text-muted));
+  font-weight: 500;
+}
+
+:root.light .tag-pill {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.flex {
+  display: flex;
+}
+
+.gap-2 {
+  gap: 8px;
 }
 
 .icon-box {
