@@ -132,7 +132,7 @@ export function GlobalSearch() {
 
       {/* Search Modal */}
       <AnimatePresence>
-        {isOpen && (
+        {isSearchOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -142,8 +142,7 @@ export function GlobalSearch() {
             onMouseDown={(e) => {
               // Close only if clicking directly on overlay, not its children
               if (e.target === e.currentTarget) {
-                console.log('✓ Overlay clicked - closing');
-                setIsOpen(false);
+                closeSearch();
               }
             }}
             data-testid="global-search-overlay"
