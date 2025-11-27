@@ -150,6 +150,7 @@ export function GlobalSearch() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.2 }}
               className="global-search-dialog"
+              onClick={(e) => e.stopPropagation()}
               data-testid="global-search-dialog"
             >
               {/* Search Input */}
