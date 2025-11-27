@@ -136,7 +136,7 @@ export function GlobalSearch() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.25 }}
             className="global-search-overlay"
             onClick={(e) => {
               if (e.target === e.currentTarget) {
@@ -145,15 +145,15 @@ export function GlobalSearch() {
             }}
             data-testid="global-search-overlay"
           >
-            {/* Backdrop with blur */}
-            <div className="global-search-backdrop" />
-
             {/* Search Dialog */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              initial={{ scale: 0.85, opacity: 0, y: -30 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.85, opacity: 0, y: -30 }}
+              transition={{ 
+                duration: 0.25,
+                ease: [0.4, 0, 0.2, 1]
+              }}
               className="global-search-dialog"
               onClick={(e) => e.stopPropagation()}
               data-testid="global-search-dialog"
