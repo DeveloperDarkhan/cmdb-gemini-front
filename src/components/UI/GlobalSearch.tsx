@@ -165,7 +165,9 @@ export function GlobalSearch() {
       {/* Search Trigger Button */}
       <button
         onClick={openSearch}
-        className="search-trigger"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        className={`search-trigger ${shouldPulse ? 'pulse' : ''}`}
         data-testid="global-search-trigger"
       >
         <Search size={18} className="search-trigger-icon" />
