@@ -8,7 +8,11 @@
   flex-direction: column;
   z-index: 50;
   border-right: var(--border-glass);
-  transition: all 0.3s ease;
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 72px;
 }
 
 :root.light .sidebar {
