@@ -1,23 +1,24 @@
-import React from 'react';
-import { Bell, Globe, Sun, Moon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Bell, Sun, Moon } from 'lucide-react';
 import { GlobalSearch } from '../UI/GlobalSearch';
+import { RegionSelector, type Region } from '../UI/RegionSelector';
 import { useTheme } from '../../contexts/ThemeContext';
 import './Topbar.css';
 
 export const Topbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const [selectedRegion, setSelectedRegion] = useState<Region>('global');
+
+  const handleRegionChange = (region: Region) => {
+    setSelectedRegion(region);
+    console.log('Selected region:', region);
+    // В реальном приложении здесь будет обновление контекста/state для фильтрации поиска
+  };
 
   return (
     <div className="topbar glass-panel">
-      <div className="region-selector">
-        <div className="region-label">
-          <span className="text-muted">Region / </span>
-          <span className="font-medium">Global</span>
-        </div>
-        <div className="region-dropdown">
-          <Globe size={16} />
-          <span>Global (Super-Region)</span>
-        </div>
+      <div className="topbar-left">
+        <RegionSelector value={selectedRegion} onChange={handleRegionChange} />
       </div>
 
       <div className="search-container">
