@@ -44,13 +44,22 @@
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid transparent;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   cursor: pointer;
+}
+
+:root.light .finding-item {
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .finding-item:hover {
   background: rgba(255, 255, 255, 0.06);
   transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+:root.light .finding-item:hover {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .finding-item.alert { border-left: 3px solid hsl(var(--color-error)); }
