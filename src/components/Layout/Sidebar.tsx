@@ -37,20 +37,26 @@ export function Sidebar() {
   return (
     <aside className={clsx('sidebar glass-panel', isCollapsed && 'collapsed')}>
       <div className="sidebar-header">
-        <div className="logo-container">
+        <div 
+          className={clsx('logo-container', isCollapsed && 'clickable')}
+          onClick={isCollapsed ? toggleSidebar : undefined}
+          title={isCollapsed ? 'Expand sidebar' : undefined}
+        >
           <Database className="logo-icon" />
           {!isCollapsed && (
             <span className="logo-text">CMDB <span className="logo-version">v1</span></span>
           )}
         </div>
-        <button 
-          className="sidebar-toggle" 
-          onClick={toggleSidebar}
-          title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          data-testid="sidebar-toggle"
-        >
-          {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
-        </button>
+        {!isCollapsed && (
+          <button 
+            className="sidebar-toggle" 
+            onClick={toggleSidebar}
+            title="Collapse sidebar"
+            data-testid="sidebar-toggle"
+          >
+            <ChevronLeft size={18} />
+          </button>
+        )}
       </div>
       
       <nav className="sidebar-nav">
