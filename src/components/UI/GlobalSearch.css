@@ -76,51 +76,72 @@
   }
 }
 
-/* Молния при hover */
+/* Молния ВНУТРИ кнопки - от начала до kbd */
 .search-trigger::after {
   content: '';
   position: absolute;
   top: 50%;
-  right: -20px;
+  left: 0;
   width: 0;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(
     90deg,
-    hsl(var(--color-primary)),
-    hsl(var(--color-secondary)),
-    transparent
+    hsl(var(--color-primary)) 0%,
+    hsl(var(--color-secondary)) 50%,
+    rgba(var(--color-primary), 0.5) 100%
   );
   opacity: 0;
   transition: none;
   pointer-events: none;
-  z-index: 10000;
+  z-index: 1;
+  border-radius: 2px;
+  box-shadow: 
+    0 0 10px hsl(var(--color-primary)),
+    0 0 20px hsl(var(--color-secondary));
 }
 
 .search-trigger:hover::after {
-  animation: lightning 0.6s ease-out forwards;
+  animation: lightning-inside 0.8s ease-out forwards;
 }
 
-@keyframes lightning {
+@keyframes lightning-inside {
   0% {
     opacity: 0;
     width: 0;
+    left: 18px;
   }
-  20% {
+  15% {
     opacity: 1;
-    width: 150px;
+    width: 30%;
   }
-  40% {
-    opacity: 0.8;
-    width: 180px;
+  30% {
+    opacity: 0.7;
+    width: 50%;
+  }
+  45% {
+    opacity: 1;
+    width: 70%;
   }
   60% {
+    opacity: 0.8;
+    width: 85%;
+  }
+  80% {
     opacity: 1;
-    width: 200px;
+    width: calc(100% - 60px);
   }
   100% {
     opacity: 0;
-    width: 220px;
+    width: calc(100% - 50px);
   }
+}
+
+/* Подсветка kbd при hover */
+.search-trigger:hover .search-trigger-kbd {
+  background: rgba(var(--color-primary), 0.25);
+  border-color: rgba(var(--color-primary), 0.4);
+  box-shadow: 0 0 15px rgba(var(--color-primary), 0.4);
+  transform: scale(1.05);
 }
 
 .search-trigger:hover {
