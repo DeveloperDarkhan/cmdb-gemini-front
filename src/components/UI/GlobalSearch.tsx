@@ -114,15 +114,7 @@ export function GlobalSearch() {
     }
   }, []);
 
-  // Подсветка region selector при hover
-  useEffect(() => {
-    const regionSelector = document.querySelector('.region-selector-trigger.compact');
-    if (isHovering && regionSelector) {
-      regionSelector.classList.add('highlight');
-    } else if (regionSelector) {
-      regionSelector.classList.remove('highlight');
-    }
-  }, [isHovering]);
+  // Молния теперь внутри search trigger - не нужна подсветка region selector
 
   // Search logic
   useEffect(() => {
