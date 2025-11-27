@@ -60,6 +60,16 @@
   align-items: center;
   gap: 12px;
   color: hsl(var(--color-primary));
+  transition: gap 0.3s ease;
+}
+
+.sidebar.collapsed .logo-container {
+  gap: 0;
+  justify-content: center;
+}
+
+.logo-icon {
+  flex-shrink: 0;
 }
 
 .logo-text {
@@ -67,6 +77,12 @@
   font-weight: 700;
   color: hsl(var(--color-text-main));
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .logo-text {
+  display: none;
 }
 
 .logo-version {
