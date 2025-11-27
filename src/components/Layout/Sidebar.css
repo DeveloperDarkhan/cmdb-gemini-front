@@ -60,7 +60,18 @@
   align-items: center;
   gap: 12px;
   color: hsl(var(--color-primary));
-  transition: gap 0.3s ease;
+  transition: gap 0.3s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.logo-container.clickable {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.logo-container.clickable:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.05);
 }
 
 .sidebar.collapsed .logo-container {
@@ -70,6 +81,11 @@
 
 .logo-icon {
   flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.logo-container.clickable:hover .logo-icon {
+  transform: scale(1.1);
 }
 
 .logo-text {
