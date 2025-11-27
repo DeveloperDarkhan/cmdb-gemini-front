@@ -1,15 +1,15 @@
-/* Moved to Layout.css or imported here */
-/* Actually, let's just import Layout.css in Topbar.tsx or put Topbar styles here */
-/* For now, I will put Topbar specific styles here to match the import in Topbar.tsx */
-
 .topbar {
-  height: var(--header-height);
+  height: 70px;
   padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   gap: 24px;
+}
+
+:root.light .topbar {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
 .topbar-left {
