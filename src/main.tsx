@@ -4,12 +4,15 @@ import './index.css'
 import App from './App.tsx'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { SidebarProvider } from './contexts/SidebarContext'
+import { SearchProvider } from './contexts/SearchContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <SidebarProvider>
-        <App />
+        <SearchProvider>
+          <App />
+        </SearchProvider>
       </SidebarProvider>
     </ThemeProvider>
   </StrictMode>,
