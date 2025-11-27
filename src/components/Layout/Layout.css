@@ -35,6 +35,11 @@
   justify-content: space-between;
   padding: 0 32px;
   border-bottom: var(--border-glass);
+  transition: left 0.3s ease;
+}
+
+.sidebar-collapsed .topbar {
+  left: 72px;
 }
 
 .breadcrumb {
