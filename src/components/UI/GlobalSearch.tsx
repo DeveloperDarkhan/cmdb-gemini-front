@@ -110,7 +110,7 @@ export function GlobalSearch() {
     if (result.path) {
       navigate(result.path);
     }
-    setIsOpen(false);
+    closeSearch();
     setQuery('');
   };
 
@@ -118,7 +118,7 @@ export function GlobalSearch() {
     <>
       {/* Search Trigger Button */}
       <button
-        onClick={() => setIsOpen(true)}
+        onClick={openSearch}
         className="search-trigger"
         data-testid="global-search-trigger"
       >
