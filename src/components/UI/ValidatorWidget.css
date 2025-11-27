@@ -1,0 +1,107 @@
+.validator-widget {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.widget-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.status-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.status-badge.error {
+  background: rgba(var(--color-error), 0.15);
+  color: hsl(var(--color-error));
+  border: 1px solid rgba(var(--color-error), 0.3);
+}
+
+.findings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.finding-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.finding-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(4px);
+}
+
+.finding-item.alert { border-left: 3px solid hsl(var(--color-error)); }
+.finding-item.warn { border-left: 3px solid hsl(var(--color-warning)); }
+.finding-item.info { border-left: 3px solid hsl(var(--color-primary)); }
+
+.finding-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert .finding-icon { color: hsl(var(--color-error)); }
+.warn .finding-icon { color: hsl(var(--color-warning)); }
+.info .finding-icon { color: hsl(var(--color-primary)); }
+
+.finding-content {
+  flex: 1;
+}
+
+.finding-message {
+  font-size: 13px;
+  color: hsl(var(--color-text-main));
+}
+
+.finding-count {
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: hsl(var(--color-text-muted));
+}
+
+.widget-footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.view-all-btn {
+  background: transparent;
+  border: none;
+  color: hsl(var(--color-primary));
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.view-all-btn:hover {
+  background: rgba(var(--color-primary), 0.1);
+}

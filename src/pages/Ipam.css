@@ -1,0 +1,10 @@
+.ipam-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.ipam-content {
+  display: flex;
+  flex-direction: column;
+}

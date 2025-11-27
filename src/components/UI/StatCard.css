@@ -1,0 +1,95 @@
+.stat-card {
+  position: relative;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  overflow: hidden;
+  min-width: 240px;
+}
+
+.stat-icon-wrapper {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1;
+}
+
+.stat-title {
+  font-size: 14px;
+  color: hsl(var(--color-text-muted));
+  font-weight: 500;
+}
+
+.stat-value-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: hsl(var(--color-text-main));
+  letter-spacing: -0.02em;
+}
+
+.stat-trend {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.stat-trend.positive {
+  color: hsl(var(--color-success));
+  background: rgba(var(--color-success), 0.1);
+}
+
+.stat-trend.negative {
+  color: hsl(var(--color-error));
+  background: rgba(var(--color-error), 0.1);
+}
+
+/* Color Variants */
+.color-primary .stat-icon { color: hsl(var(--color-primary)); }
+.color-secondary .stat-icon { color: hsl(var(--color-secondary)); }
+.color-success .stat-icon { color: hsl(var(--color-success)); }
+.color-warning .stat-icon { color: hsl(var(--color-warning)); }
+.color-error .stat-icon { color: hsl(var(--color-error)); }
+
+.stat-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--glow-color, rgba(255,255,255,0.03)) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.stat-card:hover .stat-glow {
+  opacity: 1;
+}
+
+.color-primary { --glow-color: rgba(var(--color-primary), 0.15); }
+.color-secondary { --glow-color: rgba(var(--color-secondary), 0.15); }
+.color-success { --glow-color: rgba(var(--color-success), 0.15); }
+.color-warning { --glow-color: rgba(var(--color-warning), 0.15); }
+.color-error { --glow-color: rgba(var(--color-error), 0.15); }

@@ -1,0 +1,70 @@
+.inventory-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(var(--color-primary), 0.1);
+  color: hsl(var(--color-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-type {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: hsl(var(--color-text-main));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-muted {
+  color: hsl(var(--color-text-muted));
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-pill .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-pill.active {
+  background: rgba(var(--color-success), 0.15);
+  color: hsl(var(--color-success));
+}
+
+.status-pill.maintenance {
+  background: rgba(var(--color-warning), 0.15);
+  color: hsl(var(--color-warning));
+}
+
+.status-pill.offline {
+  background: rgba(var(--color-text-muted), 0.15);
+  color: hsl(var(--color-text-muted));
+}
