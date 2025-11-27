@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Search, X, Command, Server, Network, Database, Globe, Box } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useSearch } from '../../contexts/SearchContext';
 import './GlobalSearch.css';
 
 interface SearchResult {
