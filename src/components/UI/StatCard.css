@@ -89,9 +89,9 @@
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, var(--glow-color, rgba(255,255,255,0.03)) 0%, transparent 70%);
+  background: radial-gradient(circle at 70% 30%, var(--glow-color, rgba(255,255,255,0.05)) 0%, transparent 60%);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
@@ -99,8 +99,22 @@
   opacity: 1;
 }
 
-.color-primary { --glow-color: rgba(var(--color-primary), 0.15); }
-.color-secondary { --glow-color: rgba(var(--color-secondary), 0.15); }
-.color-success { --glow-color: rgba(var(--color-success), 0.15); }
-.color-warning { --glow-color: rgba(var(--color-warning), 0.15); }
-.color-error { --glow-color: rgba(var(--color-error), 0.15); }
+.color-primary { 
+  --glow-color: rgba(156, 103, 255, 0.2);
+}
+
+.color-secondary { 
+  --glow-color: rgba(0, 215, 255, 0.2);
+}
+
+.color-success { 
+  --glow-color: rgba(0, 204, 102, 0.2);
+}
+
+.color-warning { 
+  --glow-color: rgba(255, 170, 0, 0.2);
+}
+
+.color-error { 
+  --glow-color: rgba(255, 77, 77, 0.2);
+}
