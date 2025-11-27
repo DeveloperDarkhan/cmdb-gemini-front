@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import clsx from 'clsx';
 import { useSidebar } from '../../contexts/SidebarContext';
+import { useSearch } from '../../contexts/SearchContext';
 import './Sidebar.css';
 
 const NAV_ITEMS = [
