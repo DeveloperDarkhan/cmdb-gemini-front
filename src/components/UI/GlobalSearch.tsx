@@ -52,8 +52,11 @@ export function GlobalSearch() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [shouldPulse, setShouldPulse] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const pulseTimeoutRef = useRef<NodeJS.Timeout>();
 
   // Keyboard shortcut (Cmd+K or Ctrl+K)
   useEffect(() => {
