@@ -135,11 +135,23 @@ td {
   font-size: 14px;
   color: hsl(var(--color-text-main));
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
 
-tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+:root.light td {
+  border-bottom-color: rgba(0, 0, 0, 0.04);
+}
+
+tbody tr {
+  transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+:root.light tbody tr:hover {
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .table-footer {
