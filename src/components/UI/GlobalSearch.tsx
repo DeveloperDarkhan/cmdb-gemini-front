@@ -235,7 +235,7 @@ export function GlobalSearch() {
                 </div>
               </div>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </>
