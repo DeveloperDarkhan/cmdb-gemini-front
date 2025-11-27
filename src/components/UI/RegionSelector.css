@@ -74,6 +74,12 @@
   font-size: 16px;
 }
 
+.region-label-compact {
+  font-size: 13px;
+  font-weight: 500;
+  color: hsl(var(--color-text-main));
+}
+
 .chevron-icon {
   color: hsl(var(--color-text-muted));
   transition: transform 0.2s ease;
