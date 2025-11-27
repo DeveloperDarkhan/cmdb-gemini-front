@@ -98,14 +98,32 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: hsl(var(--color-primary));
-  box-shadow: 0 0 10px hsl(var(--color-primary));
+  background: linear-gradient(
+    180deg,
+    hsl(var(--color-primary)),
+    hsl(var(--color-secondary))
+  );
+  box-shadow: 0 0 16px hsl(var(--color-primary));
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s ease;
+  border-radius: 0 2px 2px 0;
 }
 
 .nav-item.active .nav-glow {
   opacity: 1;
+}
+
+.nav-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover .nav-icon {
+  transform: scale(1.1);
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.05);
 }
 
 .sidebar-footer {
