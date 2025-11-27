@@ -16,7 +16,9 @@ export const Topbar: React.FC = () => {
 
   return (
     <div className="topbar glass-panel">
-      <div className="search-container">
+      <div className="topbar-spacer"></div>
+      
+      <div className="search-container-centered">
         <GlobalSearch />
       </div>
 
