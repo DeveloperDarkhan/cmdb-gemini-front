@@ -81,6 +81,49 @@ export function GlobalSearch() {
     }
   }, [isSearchOpen]);
 
+  // Пульсация при скролле sidebar
+  useEffect(() => {
+    const handleScroll = (e: Event) => {
+      const target = e.target as HTMLElement;
+      // Проверяем что скролл происходит в sidebar nav
+      if (target.classList.contains('sidebar-nav') || target.closest('.sidebar-nav')) {
+        setShouldPulse(true);
+        
+        // Очищаем предыдущий timeout
+        if (pulseTimeoutRef.current) {
+          clearTimeout(pulseTimeoutRef.current);
+        }
+        
+        // Убираем пульсацию через 3 секунды после остановки скролла
+        pulseTimeoutRef.current = setTimeout(() => {
+          setShouldPulse(false);
+        }, 3000);
+      }
+    };
+
+    // Слушаем скролл на всех элементах с классом sidebar-nav
+    const sidebarNav = document.querySelector('.sidebar-nav');
+    if (sidebarNav) {
+      sidebarNav.addEventListener('scroll', handleScroll);
+      return () => {
+        sidebarNav.removeEventListener('scroll', handleScroll);
+        if (pulseTimeoutRef.current) {
+          clearTimeout(pulseTimeoutRef.current);
+        }
+      };
+    }
+  }, []);
+
+  // Подсветка region selector при hover
+  useEffect(() => {
+    const regionSelector = document.querySelector('.region-selector-trigger.compact');
+    if (isHovering && regionSelector) {
+      regionSelector.classList.add('highlight');
+    } else if (regionSelector) {
+      regionSelector.classList.remove('highlight');
+    }
+  }, [isHovering]);
+
   // Search logic
   useEffect(() => {
     if (query.trim()) {
