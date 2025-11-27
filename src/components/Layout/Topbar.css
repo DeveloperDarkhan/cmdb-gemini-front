@@ -131,19 +131,70 @@
   border: 2px solid hsl(var(--color-background));
 }
 
-.badge {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  background: hsl(var(--color-error));
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  min-width: 16px;
-  height: 16px;
+.actions-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.user-profile:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+:root.light .user-profile {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+:root.light .user-profile:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, hsl(var(--color-primary)), hsl(var(--color-secondary)));
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid hsl(var(--color-background));
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user-info .name {
+  font-size: 13px;
+  font-weight: 600;
+  color: hsl(var(--color-text-main));
+}
+
+.user-info .role {
+  font-size: 11px;
+  color: hsl(var(--color-text-muted));
+}
+
+.search-container {
+  flex: 1;
+  max-width: 500px;
 }
