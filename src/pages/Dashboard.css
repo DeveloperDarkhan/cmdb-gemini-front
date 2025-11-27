@@ -83,12 +83,33 @@
   gap: 16px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: var(--radius-sm);
-  border: 2px dashed rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.06);
   color: hsl(var(--color-text-muted));
+  transition: all 0.2s ease;
+}
+
+:root.light .chart-placeholder {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.chart-placeholder:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+:root.light .chart-placeholder:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .chart-icon-placeholder {
   opacity: 0.2;
+  transition: opacity 0.2s ease;
+}
+
+.chart-placeholder:hover .chart-icon-placeholder {
+  opacity: 0.3;
 }
 
 @media (max-width: 1024px) {
