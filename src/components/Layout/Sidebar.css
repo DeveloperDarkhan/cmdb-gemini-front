@@ -116,10 +116,27 @@
   overflow: hidden;
 }
 
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 12px;
+}
+
 .nav-item:hover {
   background: rgba(255, 255, 255, 0.06);
   color: hsl(var(--color-text-main));
   transform: translateX(2px);
+}
+
+.sidebar.collapsed .nav-item:hover {
+  transform: scale(1.05);
+}
+
+.nav-label {
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .nav-label {
+  display: none;
 }
 
 :root.light .nav-item:hover {
