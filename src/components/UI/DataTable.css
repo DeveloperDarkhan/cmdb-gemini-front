@@ -98,10 +98,17 @@ th {
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: hsl(var(--color-text-muted));
   border-bottom: var(--border-glass);
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.15);
   user-select: none;
+  transition: all 0.2s ease;
+}
+
+:root.light th {
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
 th.sortable {
@@ -110,7 +117,11 @@ th.sortable {
 
 th.sortable:hover {
   color: hsl(var(--color-text-main));
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+:root.light th.sortable:hover {
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .th-content {
