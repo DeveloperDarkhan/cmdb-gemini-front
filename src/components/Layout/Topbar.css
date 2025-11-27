@@ -133,7 +133,12 @@
   color: hsl(var(--color-text-muted));
 }
 
-.search-container {
-  flex: 1;
-  max-width: 500px;
+.user-icon {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+:root.light .user-icon {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
 }
