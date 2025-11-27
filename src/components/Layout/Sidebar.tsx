@@ -86,6 +86,7 @@ export function Sidebar() {
             to={item.path}
             className={({ isActive }) => clsx('nav-item', isActive && 'active')}
             title={isCollapsed ? item.label : undefined}
+            onMouseEnter={handleNavItemHover}
           >
             <item.icon className="nav-icon" size={20} />
             {!isCollapsed && <span className="nav-label">{item.label}</span>}
