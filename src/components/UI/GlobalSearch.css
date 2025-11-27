@@ -43,48 +43,50 @@
 
 /* Search Modal Overlay (clickable area) */
 .global-search-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
 }
 
-/* Backdrop with blur effect */
-.global-search-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: -1;
+/* Light theme overlay */
+:root.light .global-search-overlay {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
 }
 
-/* Search Dialog */
+/* Search Dialog - CENTERED */
 .global-search-dialog {
-  position: relative;
+  position: relative !important;
   width: 100%;
   max-width: 680px;
-  background: hsl(var(--color-surface));
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: auto;
+  background: rgba(30, 41, 59, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
 
-/* Light theme adjustments */
-:root.light .global-search-backdrop {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-}
-
+/* Light theme dialog */
 :root.light .global-search-dialog {
-  background: hsl(var(--color-surface));
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 /* Search Input */
