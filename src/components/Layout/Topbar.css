@@ -104,12 +104,31 @@
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
-  transition: color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .icon-btn:hover {
   color: hsl(var(--color-text-main));
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+:root.light .icon-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle {
+  color: hsl(var(--color-primary));
+}
+
+.notification-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background: hsl(var(--color-error));
+  border-radius: 50%;
+  border: 2px solid hsl(var(--color-background));
 }
 
 .badge {
