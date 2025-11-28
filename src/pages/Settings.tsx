@@ -1,5 +1,5 @@
 import { useTheme } from '../contexts/ThemeContext';
-import { Sun, Moon, Monitor, Bell, Globe, Shield, User } from 'lucide-react';
+import { Sun, Moon, Bell, Globe, Shield, User } from 'lucide-react';
 import './Settings.css';
 
 export function Settings() {

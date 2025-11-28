@@ -10,7 +10,7 @@ export const Topbar: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState<Region>('global');
   const [showLightning, setShowLightning] = useState(false);
   const topbarRef = useRef<HTMLDivElement>(null);
-  const lightningTimeoutRef = useRef<NodeJS.Timeout>();
+  const lightningTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const handleRegionChange = (region: Region) => {
     setSelectedRegion(region);

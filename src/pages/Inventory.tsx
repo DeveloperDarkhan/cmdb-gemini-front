@@ -11,59 +11,87 @@ interface InventoryProps {
   subtitle: string;
 }
 
-const columns: ColumnDef<Asset>[] = [
-  {
-    accessorKey: 'name',
-    header: 'Name',
-    cell: ({ row }) => (
-      <div className="asset-name-cell">
-        <div className="asset-icon-box">
-           <Box size={18} className="text-primary" />
-        </div>
-        <span className="font-medium">{row.original.name}</span>
-      </div>
-    ),
-  },
-  {
-    accessorKey: 'type',
-    header: 'Type',
-  },
-  {
-    accessorKey: 'region',
-    header: 'Region',
-  },
-  {
-    accessorKey: 'status',
-    header: 'Status',
-    cell: ({ row }) => {
-      const status = (row.original.status || 'active') as string;
-      return (
-        <span className={`status-pill status-${status}`}>
-          {status === 'active' && <CheckCircle2 size={12} />}
-          {status === 'warning' && <AlertCircle size={12} />}
-          {status === 'error' && <AlertCircle size={12} />}
-          {status.toUpperCase()}
-        </span>
-      );
-    },
-  },
-  {
-    accessorKey: 'tags',
-    header: 'Tags',
-    cell: ({ row }) => (
-      <div className="flex gap-2">
-        {row.original.tags.map((tag) => (
-          <span key={tag} className="tag-pill">
-            {tag}
-          </span>
-        ))}
-      </div>
-    ),
-  },
-];
+// Moved columns definition inside component to be dynamic
+import { useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 export const Inventory: React.FC<InventoryProps> = ({ type, title, subtitle }) => {
   const { data, loading, error } = useAssets(type);
+  const [searchParams] = useSearchParams();
+  const initialSearch = searchParams.get('q') || '';
+
+  const columns = useMemo<ColumnDef<Asset>[]>(() => {
+    const cols: ColumnDef<Asset>[] = [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        cell: ({ row }) => (
+          <div className="asset-name-cell">
+            <div className="asset-icon-box">
+               <Box size={18} className="text-primary" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-medium">{row.original.name}</span>
+              {/* Show DNS details in subtitle if available */}
+              {row.original.type === 'DNSRecord' && (
+                <span className="text-xs text-muted-foreground">
+                  {(row.original.details as any)?.value}
+                </span>
+              )}
+            </div>
+          </div>
+        ),
+      },
+      {
+        accessorKey: 'type',
+        header: 'Type',
+      },
+      // Conditionally add Kubernetes column
+      ...(type?.startsWith('k8s-') ? [{
+        id: 'kubernetes',
+        header: 'Kubernetes',
+        accessorFn: (row: Asset) => (row.details as any)?.cluster || '-',
+        cell: ({ getValue }: any) => (
+          <span className="text-sm font-medium text-blue-400">
+            {getValue()}
+          </span>
+        )
+      }] : []),
+      {
+        accessorKey: 'region',
+        header: 'Region',
+      },
+      {
+        accessorKey: 'status',
+        header: 'Status',
+        cell: ({ row }) => {
+          const status = (row.original.status || 'active') as string;
+          return (
+            <span className={`status-pill status-${status}`}>
+              {status === 'active' && <CheckCircle2 size={12} />}
+              {status === 'warning' && <AlertCircle size={12} />}
+              {status === 'error' && <AlertCircle size={12} />}
+              {status.toUpperCase()}
+            </span>
+          );
+        },
+      },
+      {
+        accessorKey: 'tags',
+        header: 'Tags',
+        cell: ({ row }) => (
+          <div className="flex gap-2 flex-wrap">
+            {row.original.tags.map((tag) => (
+              <span key={tag} className="tag-pill">
+                {tag}
+              </span>
+            ))}
+          </div>
+        ),
+      },
+    ];
+    return cols;
+  }, [type]);
 
   if (loading) return <div className="p-8 text-center text-muted">Loading {title}...</div>;
   if (error) return <div className="p-8 text-center text-red-400">Error loading data: {error}</div>;
@@ -76,7 +104,7 @@ export const Inventory: React.FC<InventoryProps> = ({ type, title, subtitle }) =
       </div>
 
       <div className="glass-panel p-6">
-        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={data} initialSearch={initialSearch} />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Layout } from './components/Layout/Layout';
 import { Dashboard } from './pages/Dashboard';
 import { Inventory } from './pages/Inventory';
-import { Network } from './pages/Network';
+
 import { Ipam } from './pages/Ipam';
 import { Settings } from './pages/Settings';
 import { SearchPage } from './pages/SearchPage';
@@ -23,10 +23,18 @@ function App() {
           <Route path="vms" element={<Inventory type="vms" title="Virtual Machines" subtitle="Virtual compute instances" />} />
           
           {/* Renamed/New */}
+          {/* Renamed/New */}
           <Route path="network-devices" element={<Inventory type="network-devices" title="Network Devices" subtitle="Switches, Routers, and Firewalls" />} />
-          <Route path="k8s" element={<Inventory type="k8s" title="Kubernetes Clusters" subtitle="Container orchestration clusters" />} />
+          <Route path="k8s" element={<Navigate to="/k8s/clusters" replace />} />
+          <Route path="k8s/clusters" element={<Inventory type="k8s" title="Kubernetes Clusters" subtitle="Container orchestration clusters" />} />
+          <Route path="k8s/ingress" element={<Inventory type="k8s-ingress" title="Ingress Controllers" subtitle="K8s Ingress Resources" />} />
+          <Route path="k8s/deployments" element={<Inventory type="k8s-deployments" title="Deployments" subtitle="K8s Workload Deployments" />} />
+          <Route path="k8s/helm" element={<Inventory type="k8s-helm" title="Helm Releases" subtitle="Installed Helm Charts" />} />
+          <Route path="k8s/pods" element={<Inventory type="k8s-pods" title="Pods" subtitle="Running Pod Instances" />} />
+          <Route path="k8s/services" element={<Inventory type="k8s-services" title="Services" subtitle="K8s Network Services" />} />
           <Route path="databases" element={<Inventory type="databases" title="Databases" subtitle="Managed and self-hosted databases" />} />
           <Route path="brokers" element={<Inventory type="brokers" title="Message Brokers" subtitle="Kafka, RabbitMQ, etc." />} />
+          <Route path="dns" element={<Inventory type="dns" title="DNS Records" subtitle="Public and Private Zones (Route53, CloudFlare)" />} />
           
           <Route path="ipam/*" element={<Ipam />} />
           <Route path="search" element={<SearchPage />} />

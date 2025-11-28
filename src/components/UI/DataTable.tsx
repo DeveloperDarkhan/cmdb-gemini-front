@@ -7,7 +7,7 @@ import {
   type ColumnDef,
   type SortingState,
 } from '@tanstack/react-table';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp, Search, Filter } from 'lucide-react';
 import './DataTable.css';
 
@@ -16,11 +16,12 @@ interface DataTableProps<T> {
   columns: ColumnDef<T, any>[];
   title?: string;
   searchPlaceholder?: string;
+  initialSearch?: string;
 }
 
-export function DataTable<T>({ data, columns, title, searchPlaceholder = "Search..." }: DataTableProps<T>) {
+export function DataTable<T>({ data, columns, title, searchPlaceholder = "Search...", initialSearch = '' }: DataTableProps<T>) {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [globalFilter, setGlobalFilter] = useState('');
+  const [globalFilter, setGlobalFilter] = useState(initialSearch);
 
   const table = useReactTable({
     data,
@@ -35,6 +36,13 @@ export function DataTable<T>({ data, columns, title, searchPlaceholder = "Search
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
   });
+
+  // Sync globalFilter with initialSearch prop if it changes (e.g. navigation)
+  useEffect(() => {
+    if (initialSearch) {
+      setGlobalFilter(initialSearch);
+    }
+  }, [initialSearch]);
 
   return (
     <div className="data-table-container glass-card">
